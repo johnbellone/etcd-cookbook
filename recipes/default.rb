@@ -9,7 +9,7 @@ include_recipe 'etcd::install-source'
 
 directory node[:etcd][:configuration][:data_dir]
 template File.join(node[:etcd][:configuration][:data_dir], 'etcd.conf') do
-  source 'etcd.toml.erb'
+  source 'etcd.conf.erb'
   variables({
     configuration: node[:etcd][:configuration]
   })
