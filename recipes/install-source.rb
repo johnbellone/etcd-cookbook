@@ -21,8 +21,19 @@ git "#{node[:go][:gopath]}/src/github.com/coreos/etcd" do
   action :checkout
 end
 
+git "#{node[:go][:gopath]}/src/github.com/coreos/etcdctl" do
+  repository "https://github.com/coreos/etcdctl.git"
+  reference "v#{node[:etcd][:version]}"
+  action :checkout
+end
+
 golang_package 'github.com/coreos/etcd'
+golang_package 'github.com/coreos/etcdctl'
 
 link "#{node[:etcd][:install_dir]}/etcd" do
   to "#{node[:go][:gobin]}/etcd"
+end
+
+link "#{node[:etcd][:install_dir]}/etcdctl" do
+  to "#{node[:go][:gobin]}/etcdctl"
 end
