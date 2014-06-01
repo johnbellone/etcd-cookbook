@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe command('which etcd') do
   it { should return_exit_status 0 }
-  its(:stdout) { should metch '/usr/local/bin/etcd' }
+  its(:stdout) { should match '/usr/local/bin/etcd' }
 end
 
 describe service('etcd') do
