@@ -7,6 +7,7 @@
 #
 default[:etcd][:version] = '0.4.1'
 default[:etcd][:install_dir] = '/usr/local/bin'
+default[:etcd][:log_dir] = '/var/log/etcd'
 
 default[:etcd][:configuration][:name] = 'etcd-cluster'
 default[:etcd][:configuration][:addr] = '127.0.0.1:4001'
